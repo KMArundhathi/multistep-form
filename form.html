@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./form.css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="questionpagestyle.css">
+</head>
+
+<body>
+    <form id="multi-step-form">
+        <div class="modal-wrap">
+            <div class="modal-header"><span class="is-active"></span><span></span><span></span><span></span><span></span></div>
+            <div class="modal-bodies">
+                <div class="modal-body modal-body-step-1 is-showing">
+                    <div class="title">Step 1</div>
+                    <div class="description">Enter your username and email</div>
+                    <fieldset>
+                        <input type="text" placeholder="Name" required />
+                        <input type="email" placeholder="Email" required />
+                        <div class="text-center">
+                            <div class="button next">Next</div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-body modal-body-step-2">
+                    <div class="title">Step 2</div>
+                    <div class="description">What is your educational background?</div>
+                    <fieldset>
+                        <label>
+                            <input type="radio" id="artsRadio" name="education" required> Arts
+                        </label>
+                        <label>
+                            <input type="radio" id="commerceRadio" name="education" required>
+                            Commerce
+                        </label>
+                        <label>
+                            <input type="radio" id="scienceRadio" name="education" required>
+                            Science &
+                            Technology
+                        </label>
+                        <label>
+                            <input type="radio" id="otherRadio" name="education" required>
+                            Other
+                        </label>
+                        <div class="text-center fade-in">
+                            <div class="button next">Next</div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-body modal-body-step-3">
+                    <div class="title">Step 3</div>
+                    <div class="description">What is your career aspiration?</div>
+                    <fieldset>
+                        <label>
+                            <input type="radio" id="programmingRadio" name="career" class="ml-3" required>programming
+                        </label>
+                        <label>
+                            <input type="radio" id="teachingRadio" name="career" class="ml-3" required>Teaching
+                        </label>
+                        <label>
+                            <input type="radio" id="researchRadio" name="career" class="ml-3" required>Research
+                        </label>
+                        <label>
+                            <input type="radio" id="businessRadio" name="career" class="ml-3" required>Business
+                        </label>
+                        <label>
+                            <input type="radio" id="writingRadio" name="career" class="ml-3" required>Writing
+                        </label>
+                        <label>
+                            <input type="radio" id="uiuxRadio" name="career" class="ml-3" required>UiUx design
+                        </label>
+                        <label>
+                            <input type="radio" id="otherCareerRadio" name="career" class="ml-3" required>Others
+                        </label>
+                    </fieldset>
+                    <div class="text-center">
+                        <div class="button next ">Next</div>
+                    </div>
+                </div>
+                <div class="modal-body modal-body-step-4">
+                    <div class="title">Step 4</div>
+                    <div class="description">How familiar are you with blockchain technology?</div>
+                    <fieldset>
+                        <label>
+                            <input type="radio" id="programmingRadio" name="blockchain" class="ml-3" required>Beginner
+                        </label>
+                        <label>
+                            <input type="radio" id="teachingRadio" name="blockchain" class="ml-3" required>Intermediate
+                        </label>
+                        <label>
+                            <input type="radio" id="researchRadio" name="blockchain" class="ml-3" required>Advanced
+                        </label>
+                        <label>
+                            <input type="radio" id="businessRadio" name="blockchain" class="ml-3" required>No knowledge
+                        </label>
+                    </fieldset>
+                    <div class="text-center">
+                        <div class="button next">Next</div>
+                    </div>
+                </div>
+                <div class="modal-body modal-body-step-4">
+                    <div class="title">Step 5</div>
+                    <div class="description">Have you participated in any blockchain-related events/workshops?</div>
+                    <fieldset>
+                        <label>
+                            <input type="radio" id="programmingRadio" name="events" class="ml-3" required>Yes
+                        </label>
+                        <label>
+                            <input type="radio" id="teachingRadio" name="events" class="ml-3" required>No
+                        </label>
+                    </fieldset>
+                    <div class="text-center">
+                        <div class="button next">Next</div>
+                    </div>
+                </div>
+                <div class="modal-body modal-body-step-5">
+                    <div class="title">Final</div>
+                    <!-- <div class="description">Have you participated in any blockchain-related events/workshops?</div> -->
+                    <fieldset>
+                        <!-- <label>
+                            <input type="radio" id="programmingRadio" name="events" class="ml-3" required>Yes
+                        </label>
+                        <label>
+                            <input type="radio" id="teachingRadio" name="events" class="ml-3" required>No
+                        </label> -->
+                    </fieldset>
+                    <div class="text-center">
+                        <!-- <button class="prev">Previous</button>
+                        <div class="next">Next</div> -->
+                        <a class="button" href="./thanks.html" style="text-decoration:none">Finish</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script>
+        $(document).ready(function () {
+            var current_fs, next_fs, previous_fs; // Fieldsets
+
+            $(".next").click(function () {
+                var currentFieldset = $(this).parent();
+                var inputs = currentFieldset.find('input:visible[required]');
+
+                if (currentFieldset.index() !== 0) {
+                    var radioButtons = currentFieldset.find('input[type="radio"]:checked');
+                    if (radioButtons.length === 0) {
+                        // alert("Please select an option before proceeding.");
+                        return;
+                    }
+                }
+
+                var valid = true;
+
+                inputs.each(function () {
+                    if (!$(this).val()) {
+                        valid = false;
+                        return false; // Exit loop if any required field is empty
+                    }
+                });
+
+                if (valid) {
+                    current_fs = currentFieldset;
+                    next_fs = currentFieldset.next();
+
+                    // Hide the current fieldset and show the next one
+                    current_fs.hide();
+                    next_fs.show();
+                } else {
+                    // alert("Please fill in all required fields before proceeding.");
+                    // You can add more user-friendly validation handling here
+                }
+            });
+
+            $(".prev").click(function () {
+                current_fs = $(this).parent();
+                previous_fs = $(this).parent().prev();
+
+                // Hide the current fieldset and show the previous one
+                current_fs.hide();
+                previous_fs.show();
+            });
+
+            // Handle form submission (this is just an example)
+            $("#multi-step-form").submit(function () {
+                // Submit logic can be added here
+                return false; // Prevent default form submission
+            });
+
+            // Logic to display options based on career aspiration and suggested courses
+            $('input[name="career"]').change(function () {
+                var selectedCareer = $('input[name="career"]:checked').attr('id');
+                var careerOptions = [];
+                var suggestedCourses = [];
+                switch (selectedCareer) {
+                    case 'programmingRadio':
+                        careerOptions = [
+                            "BLOCKCHAIN ENGINEER",
+                            "BLOCKCHAIN DEVELOPER",
+                            "BLOCKCHAIN ARCHITECT",
+                            "BLOCKCHAIN PRODUCT MANAGER"
+                        ];
+                        suggestedCourses = [
+                            "Certified Blockchain Associate",
+                            "Developer Essentials For Blockchain",
+                            "Certified Ethereum Developer",
+                            "Certified Hyperledger Fabric",
+                            "Certified Blockchain Architect"
+                        ];
+                        break;
+                    case 'teachingRadio':
+                        careerOptions = [
+                            "BLOCKCHAIN ENGINEER",
+                            "BLOCKCHAIN CONTENT WRITING",
+                            "BLOCKCHAIN RESEARCH"
+                        ];
+                        suggestedCourses = [
+                            "Certified Blockchain Associate",
+                            "Developer Essentials For Blockchain",
+                            "BLOCKCHAIN BUSINESS DEVELOPMENT",
+                            "Certified Ethereum Developer",
+                            "Certified Hyperledger Fabric",
+                            "Certified Blockchain Architect"
+                        ];
+                        break;
+                    case 'teachingRadio':
+                        careerOptions = [
+                            "BLOCKCHAIN ENGINEER",
+                            "BLOCKCHAIN CONTENT WRITING",
+                            "BLOCKCHAIN RESEARCH"
+                        ];
+                        suggestedCourses = [
+                            "Certified Blockchain Associate",
+                            "Developer Essentials For Blockchain",
+                            "BLOCKCHAIN BUSINESS DEVELOPMENT",
+                            "Certified Ethereum Developer",
+                            "Certified Hyperledger Fabric",
+                            "Certified Blockchain Architect"
+                        ];
+                        break;
+                    // Add cases for other career aspirations and their corresponding optionsToShow and suggestedCourses
+                }
+
+                // Display the selected options and suggested courses in the last fieldset
+                var lastFieldset = $('fieldset:last');
+                lastFieldset.empty();
+                lastFieldset.append('<p>Selected Career Options:</p>');
+                careerOptions.forEach(function (option) {
+                    lastFieldset.append('<p>' + option + '</p>');
+                });
+
+                lastFieldset.append('<p>Suggested Courses:</p>');
+                suggestedCourses.forEach(function (course) {
+                    lastFieldset.append('<p>' + course + '</p>');
+                });
+
+                // lastFieldset.append('<a class="button" href="./thanks.html">Next</a>');
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
